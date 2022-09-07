@@ -1,5 +1,7 @@
-﻿using ControleFinanceiro.Domain.Services;
+﻿using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Domain.Services;
 using ControleFinanceiroDomain.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +12,33 @@ namespace ControleFinanceiro.Application.Services
 {
     public class LancamentoApplication : ILancamentoApplication
     {
-        public Task InserirLancamento(Lancamento lancamento)
+        private readonly ILancamentoRepository _repository;
+        private readonly ILogger _logger;
+
+        public LancamentoApplication(ILancamentoRepository repository, ILoggerFactory loggerFactory)
         {
-            throw new NotImplementedException();
+            _repository = repository;
+            _logger = loggerFactory.CreateLogger<LancamentoApplication>(); ;
         }
 
-        public Task InserirLancamentos(List<Lancamento> lancamentos)
+        public async Task InserirLancamento(Lancamento lancamento)
         {
-            throw new NotImplementedException();
+            await _repository.InserirLancamento(lancamento);
         }
 
-        public Task<List<Lancamento>> ObterLancamentosPorDia(DateTime dataLancamento)
+        public async Task InserirLancamentos(List<Lancamento> lancamentos)
         {
-            throw new NotImplementedException();
+            await _repository.InserirLancamentos(lancamentos);
         }
 
-        public Task<List<Lancamento>> ObterTodosLancamentos()
+        public async Task<List<Lancamento>> ObterLancamentosPorDia(DateTime dataLancamento)
         {
-            throw new NotImplementedException();
+            return await _repository.ObterLancamentosPorDia(dataLancamento);
+        }
+
+        public async Task<List<Lancamento>> ObterTodosLancamentos()
+        {
+            return await _repository.ObterTodosLancamentos();
         }
     }
 }

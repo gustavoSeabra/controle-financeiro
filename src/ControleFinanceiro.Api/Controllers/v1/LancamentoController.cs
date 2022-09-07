@@ -55,7 +55,7 @@ namespace ControleFinanceiro.Api.Controllers.v1
         [HttpGet, Route("ObterLancamentosPorDia", Name = nameof(ObterLancamentosPorDia))]
         public async Task<IActionResult> ObterLancamentosPorDia(DateTime dataLancamento)
         {
-            var lancamentos = await _lancamentoService.ObterLancamentosPorDia(dataLancamento.ToBrazilianTimeZone());
+            var lancamentos = await _lancamentoService.ObterLancamentosPorDia(dataLancamento);
 
             if (lancamentos.Any() is false)
                 return NotFound("Não foram encontrados lançamentos para a data informada");
