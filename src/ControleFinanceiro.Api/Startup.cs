@@ -6,9 +6,11 @@ using FluentValidation.AspNetCore;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiroApi
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         /// <summary>
@@ -37,7 +39,14 @@ namespace ControleFinanceiroApi
             services.AddSwaggerGen();
 
             services.AddDbContext<SqlServerContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                sqlServerOptionsAction: options =>
+                {
+                    options.EnableRetryOnFailure(
+                        maxRetryCount: 3,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null);
+                }));
 
             services.AddAutoMapper(typeof(WebApiAutoMapperProfile));
 

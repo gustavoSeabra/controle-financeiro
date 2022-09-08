@@ -1,15 +1,13 @@
-﻿using ControleFinanceiro.Domain.Services;
+﻿using ControleFinanceiro.Application.Services;
+using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Domain.Services;
+using ControleFinanceiro.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using ControleFinanceiro.Application.Services;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiro.CrossCutting.Ioc
 {
+    [ExcludeFromCodeCoverage]
     public static class DependencyResolver
     {
         /// <summary>
@@ -33,7 +31,7 @@ namespace ControleFinanceiro.CrossCutting.Ioc
 
         private static void RegisterRepositories(IServiceCollection services)
         {
-            // services.AddScoped<ILancamentoRepository, LancamentoRepository>();
+            services.AddScoped<ILancamentoRepository, LancamentoRepository>();
         }
     }
 }
