@@ -4,6 +4,6 @@ namespace ControleFinanceiro.Domain.Services
 {
     public interface IEmailService
     {
-        void Send(Email email);
+        void Send(Email mail);
     }
 }

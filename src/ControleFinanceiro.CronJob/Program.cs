@@ -19,10 +19,7 @@ namespace ControleFinanceiro.CronJob
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
 
             var configuration = BuildAppConfiguration();
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .MinimumLevel.Information()
-                .CreateLogger();
+            
 
             _ = RunAsync(configuration);
         }
@@ -74,6 +71,11 @@ namespace ControleFinanceiro.CronJob
 
         private static IConfigurationRoot BuildAppConfiguration()
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .MinimumLevel.Information()
+                .CreateLogger();
+
             var directory = Directory.GetParent(Directory.GetCurrentDirectory());
             var fuulName = string.Empty;
             if (directory != null && directory.Parent != null && directory.Parent.Parent != null)
