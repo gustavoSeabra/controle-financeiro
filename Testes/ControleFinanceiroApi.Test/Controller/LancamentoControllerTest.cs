@@ -81,9 +81,9 @@ namespace ControleFinanceiroApi.Test.Controller
             var okObjectResult = response as OkObjectResult;
             okObjectResult.Should().NotBeNull();
 
-            var model = okObjectResult.Value as List<Lancamento>;
+            var model = okObjectResult?.Value as List<Lancamento>;
             model.Should().NotBeNull();
-            model.Count.Should().BeGreaterThanOrEqualTo(2);
+            model?.Count.Should().BeGreaterThanOrEqualTo(2);
 
             _lancamentoServiceMock.Verify(x => x.ObterLancamentosPorDia(It.IsAny<DateTime>()), Times.Once);
         }
@@ -122,9 +122,9 @@ namespace ControleFinanceiroApi.Test.Controller
             var okObjectResult = response as OkObjectResult;
             okObjectResult.Should().NotBeNull();
 
-            var model = okObjectResult.Value as List<Lancamento>;
+            var model = okObjectResult?.Value as List<Lancamento>;
             model.Should().NotBeNull();
-            model.Count.Should().BeGreaterThanOrEqualTo(8);
+            model?.Count.Should().BeGreaterThanOrEqualTo(8);
             _lancamentoServiceMock.Verify(x => x.ObterTodosLancamentos(), Times.Once);
         }
 
@@ -160,9 +160,9 @@ namespace ControleFinanceiroApi.Test.Controller
             var okObjectResult = response as OkObjectResult;
             okObjectResult.Should().NotBeNull();
 
-            var model = okObjectResult.Value as List<FluxoCaixa>;
+            var model = okObjectResult?.Value as List<FluxoCaixa>;
             model.Should().NotBeNull();
-            model.Count.Should().BeGreaterThanOrEqualTo(10);
+            model?.Count.Should().BeGreaterThanOrEqualTo(10);
             _lancamentoServiceMock.Verify(x => x.ObterFluxoCaixa(), Times.Once);
         }
 
@@ -199,9 +199,9 @@ namespace ControleFinanceiroApi.Test.Controller
             var okObjectResult = response as OkObjectResult;
             okObjectResult.Should().NotBeNull();
 
-            var model = okObjectResult.Value as List<FluxoCaixa>;
+            var model = okObjectResult?.Value as List<FluxoCaixa>;
             model.Should().NotBeNull();
-            model.Count.Should().BeGreaterThanOrEqualTo(1);
+            model?.Count.Should().BeGreaterThanOrEqualTo(1);
             _lancamentoServiceMock.Verify(x => x.ObterDiasSaldoNegativo(), Times.Once);
         }
 
