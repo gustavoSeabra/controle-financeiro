@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiroApi.Test"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.Infrastructure", "src\ControleFinanceiro.Infrastructure\ControleFinanceiro.Infrastructure.csproj", "{DCCA7E13-5229-4477-B6EA-DCD21BA74E59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.Domain", "src\ControleFinanceiro.Domain\ControleFinanceiro.Domain.csproj", "{0C5BC868-B541-472F-8717-718ECE95A8EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.Domain", "src\ControleFinanceiro.Domain\ControleFinanceiro.Domain.csproj", "{0C5BC868-B541-472F-8717-718ECE95A8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.CrossCutting", "src\ControleFinanceiro.CrossCutting\ControleFinanceiro.CrossCutting.csproj", "{41449E0A-D84D-4900-98FC-50CFA0627BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.CrossCutting", "src\ControleFinanceiro.CrossCutting\ControleFinanceiro.CrossCutting.csproj", "{41449E0A-D84D-4900-98FC-50CFA0627BAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.Application", "src\ControleFinanceiro.Application\ControleFinanceiro.Application.csproj", "{5604BE1A-01AB-4409-A715-A49020A01FB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.Application", "src\ControleFinanceiro.Application\ControleFinanceiro.Application.csproj", "{5604BE1A-01AB-4409-A715-A49020A01FB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.CronJob", "src\ControleFinanceiro.CronJob\ControleFinanceiro.CronJob.csproj", "{5462E5A3-DD72-41AA-ABDC-9B4D4920287C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5604BE1A-01AB-4409-A715-A49020A01FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5604BE1A-01AB-4409-A715-A49020A01FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5604BE1A-01AB-4409-A715-A49020A01FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5462E5A3-DD72-41AA-ABDC-9B4D4920287C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5462E5A3-DD72-41AA-ABDC-9B4D4920287C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5462E5A3-DD72-41AA-ABDC-9B4D4920287C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5462E5A3-DD72-41AA-ABDC-9B4D4920287C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

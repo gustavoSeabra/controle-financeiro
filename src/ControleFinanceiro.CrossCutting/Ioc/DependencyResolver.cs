@@ -27,6 +27,7 @@ namespace ControleFinanceiro.CrossCutting.Ioc
         private static void RegisterApplications(IServiceCollection services)
         {
             services.AddScoped<ILancamentoApplication, LancamentoApplication>();
+            services.AddScoped<IEmailService, EmailApplication>();
         }
 
         private static void RegisterRepositories(IServiceCollection services)
