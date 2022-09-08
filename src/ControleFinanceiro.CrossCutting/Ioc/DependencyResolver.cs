@@ -3,9 +3,11 @@ using ControleFinanceiro.Domain.Repositories;
 using ControleFinanceiro.Domain.Services;
 using ControleFinanceiro.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiro.CrossCutting.Ioc
 {
+    [ExcludeFromCodeCoverage]
     public static class DependencyResolver
     {
         /// <summary>

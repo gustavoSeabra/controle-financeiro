@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
+
 
 #nullable disable
 
 namespace ControleFinanceiro.Infrastructure.Migrations
 {
+	[ExcludeFromCodeCoverage]
     public partial class spObterFluxoCaixa : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

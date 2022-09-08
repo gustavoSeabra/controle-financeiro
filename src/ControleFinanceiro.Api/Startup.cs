@@ -6,9 +6,11 @@ using FluentValidation.AspNetCore;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiroApi
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         /// <summary>
