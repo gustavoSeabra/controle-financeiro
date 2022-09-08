@@ -70,7 +70,8 @@ namespace ControleFinanceiro.Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+			var sp = @"drop procedure ObterFluxoCaixa";
+            migrationBuilder.Sql(sp);
         }
     }
 }
