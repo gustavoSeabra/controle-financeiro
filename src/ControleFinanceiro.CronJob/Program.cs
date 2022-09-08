@@ -24,7 +24,7 @@ namespace ControleFinanceiro.CronJob
                 .MinimumLevel.Information()
                 .CreateLogger();
 
-            RunAsync(configuration);
+            _ = RunAsync(configuration);
         }
 
         private static async Task RunAsync(IConfiguration configuration)
