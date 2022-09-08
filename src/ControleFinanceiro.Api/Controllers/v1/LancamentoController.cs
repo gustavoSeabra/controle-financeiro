@@ -15,13 +15,11 @@ namespace ControleFinanceiro.Api.Controllers.v1
     {
         private readonly ILancamentoApplication _lancamentoService;
         private readonly IMapper _mapper;
-        private readonly ILogger _logger;
 
-        public LancamentoController(ILancamentoApplication lancamentoService, IMapper mapper, ILoggerFactory loggerFactory)
+        public LancamentoController(ILancamentoApplication lancamentoService, IMapper mapper)
         {
             _lancamentoService = lancamentoService;
             _mapper = mapper;
-            _logger = loggerFactory.CreateLogger<LancamentoController>();
         }
 
         /// <summary>
@@ -72,7 +70,6 @@ namespace ControleFinanceiro.Api.Controllers.v1
         [HttpPost, Route("InserirLancamento", Name = nameof(InserirLancamento))]
         public async Task<IActionResult> InserirLancamento([FromBody] LancamentoDto request)
         {
-            _logger.LogInformation("Testando o logg");
             var lancamento = _mapper.Map<Lancamento>(request);
 
             await _lancamentoService.InserirLancamento(lancamento);

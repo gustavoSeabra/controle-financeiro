@@ -5,7 +5,6 @@ namespace ControleFinanceiroApi.Test.Suport.Mocks
 {
     public static class FluxoCaixaMock
     {
-
         public static FluxoCaixa GetFaker()
         {
             var faker = GetListFaker(1).FirstOrDefault();

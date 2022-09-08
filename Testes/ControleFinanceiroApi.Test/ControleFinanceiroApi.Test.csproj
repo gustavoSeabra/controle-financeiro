@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\ControleFinanceiro.Api\ControleFinanceiro.Api.csproj" />
     <ProjectReference Include="..\..\src\ControleFinanceiro.Application\ControleFinanceiro.Application.csproj" />
     <ProjectReference Include="..\..\src\ControleFinanceiro.Domain\ControleFinanceiro.Domain.csproj" />
   </ItemGroup>

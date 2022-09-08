@@ -1,16 +1,13 @@
-﻿using ControleFinanceiro.Domain.Repositories;
-using ControleFinanceiro.Domain.Model;
+﻿using ControleFinanceiro.Domain.Model;
+using ControleFinanceiro.Domain.Repositories;
 using ControleFinanceiroInfrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiro.Infrastructure.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class LancamentoRepository : ILancamentoRepository
     {
         private readonly SqlServerContext _context;
