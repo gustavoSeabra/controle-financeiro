@@ -1,4 +1,4 @@
-﻿using ControleFinanceiroDomain.Models;
+﻿using ControleFinanceiro.Domain.Model;
 
 namespace ControleFinanceiro.Domain.Services
 {
@@ -8,5 +8,7 @@ namespace ControleFinanceiro.Domain.Services
         Task InserirLancamentos(List<Lancamento> lancamentos);
         Task<List<Lancamento>> ObterLancamentosPorDia(DateTime dataLancamento);
         Task<List<Lancamento>> ObterTodosLancamentos();
+        Task<List<FluxoCaixa>> ObterFluxoCaixa();
+        Task<List<FluxoCaixa>> ObterDiasSaldoNegativo();
     }
 }

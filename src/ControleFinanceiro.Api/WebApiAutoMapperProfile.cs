@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ControleFinanceiro.Api.Dtos.Requests;
-using ControleFinanceiroDomain.Models;
+using ControleFinanceiro.Domain.Model;
 
 namespace ControleFinanceiro.Api
 {

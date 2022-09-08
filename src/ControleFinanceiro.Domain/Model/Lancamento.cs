@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace ControleFinanceiroDomain.Models
+namespace ControleFinanceiro.Domain.Model
 {
     public class Lancamento
     {

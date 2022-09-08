@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using ControleFinanceiro.Api.Dtos.Requests;
-using ControleFinanceiro.CrossCutting.Extensions;
+using ControleFinanceiro.Domain.Model;
 using ControleFinanceiro.Domain.Services;
-using ControleFinanceiroDomain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -97,6 +96,42 @@ namespace ControleFinanceiro.Api.Controllers.v1
             await _lancamentoService.InserirLancamentos(lancamentos);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Efetua a busca do Saldo Final do Fluxo de Caixa
+        /// </summary>
+        /// <response code="200">Lista de todos os lançamentos cadastrados</response>
+        /// <response code="400">Os dados não correspondem às regras de validação</response>
+        /// <response code="404">Não existem lançamentos cadastrados</response>
+        /// <response code="500">Erro não identificado internamente do servidor</response>
+        [HttpGet, Route("ObterFluxoDeCaixa", Name = nameof(ObterFluxoDeCaixa))]
+        public async Task<IActionResult> ObterFluxoDeCaixa()
+        {
+            var lancamentos = await _lancamentoService.ObterFluxoCaixa();
+
+            if (lancamentos.Any() is false)
+                return NotFound("Não foram encontrados lançamentos para o fluxo de caixa");
+
+            return Ok(lancamentos);
+        }
+
+        /// <summary>
+        /// Efetua a busca dos dias em que o saldo ficou negativo
+        /// </summary>
+        /// <response code="200">Lista de todos os lançamentos cadastrados</response>
+        /// <response code="400">Os dados não correspondem às regras de validação</response>
+        /// <response code="404">Não existem lançamentos cadastrados</response>
+        /// <response code="500">Erro não identificado internamente do servidor</response>
+        [HttpGet, Route("ObterDiasSaldoNegativo", Name = nameof(ObterDiasSaldoNegativo))]
+        public async Task<IActionResult> ObterDiasSaldoNegativo()
+        {
+            var lancamentos = await _lancamentoService.ObterDiasSaldoNegativo();
+
+            if (lancamentos.Any() is false)
+                return NotFound("Não foram encontrados lançamentos com saldo negativo");
+
+            return Ok(lancamentos);
         }
     }
 }

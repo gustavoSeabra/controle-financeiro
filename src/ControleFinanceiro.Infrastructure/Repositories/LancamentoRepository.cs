@@ -1,5 +1,5 @@
 ﻿using ControleFinanceiro.Domain.Repositories;
-using ControleFinanceiroDomain.Models;
+using ControleFinanceiro.Domain.Model;
 using ControleFinanceiroInfrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,6 +30,11 @@ namespace ControleFinanceiro.Infrastructure.Repositories
         {
             await _context.Lancamentos.AddRangeAsync(lancamentos);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<FluxoCaixa>> ObterFluxoCaixa()
+        {
+            return await _context.FluxoCaixa.FromSqlRaw("exec ObterFluxoCaixa").ToListAsync();
         }
 
         public async Task<List<Lancamento>> ObterLancamentosPorDia(DateTime dataLancamento)
