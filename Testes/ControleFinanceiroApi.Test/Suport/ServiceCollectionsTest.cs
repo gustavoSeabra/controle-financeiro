@@ -67,7 +67,7 @@ namespace ControleFinanceiroApi.Test.Suport
 
             // Assert
             lancamentoRepositoryMock.Verify(x => x.ObterLancamentosPorDia(It.IsAny<DateTime>()), Times.Once);
-            response.Count().Should().Be(expected.Count());
+            response.Count.Should().Be(expected.Count);
         }
 
         [Fact(DisplayName = "Teste obter todos os lancamento")]
@@ -84,7 +84,7 @@ namespace ControleFinanceiroApi.Test.Suport
 
             // Assert
             lancamentoRepositoryMock.Verify(x => x.ObterTodosLancamentos(), Times.Once);
-            response.Count().Should().Be(expected.Count());
+            response.Count.Should().Be(expected.Count);
         }
 
         [Fact(DisplayName = "Teste obter o fluxo de caixa")]
@@ -101,7 +101,7 @@ namespace ControleFinanceiroApi.Test.Suport
 
             // Assert
             lancamentoRepositoryMock.Verify(x => x.ObterFluxoCaixa(), Times.Once);
-            response.Count().Should().Be(expected.Count());
+            response.Count.Should().Be(expected.Count);
         }
 
         [Fact(DisplayName = "Teste obter os dias com saldo negativo")]
