@@ -1,22 +1,29 @@
 ﻿using ControleFinanceiro.Domain.Model;
 using ControleFinanceiro.Domain.Services;
-using System.Net.Mail;
+using MimeKit;
+using MimeKit.Text;
 
 namespace ControleFinanceiro.Application.Services
 {
     public class EmailApplication : IEmailService
     {
-        private readonly SmtpClient _smtpClient;
-        public EmailApplication(SmtpClient smtpClient)
+        private readonly ISmtpClientGenerator _smtClient;
+        public EmailApplication(ISmtpClientGenerator smtClient)
         {
-            _smtpClient = smtpClient;
+            _smtClient = smtClient;
         }
 
         public async Task SendAsync(Email mail)
         {
+            // create message
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse(mail.De));
+            email.To.Add(MailboxAddress.Parse(mail.Para));
+            email.Subject = mail.Assunto;
+            email.Body = new TextPart(TextFormat.Html) { Text = mail.Mensagem };
+
             // send email
-            await _smtpClient.SendMailAsync(new MailMessage(mail.De, mail.Para, mail.Assunto, mail.Mensagem));
-            _smtpClient.Dispose();
+            await _smtClient.GenerateClient().SendAsync(email);
         }
     }
 }

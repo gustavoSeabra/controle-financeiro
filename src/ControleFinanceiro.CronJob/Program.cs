@@ -41,7 +41,7 @@ namespace ControleFinanceiro.CronJob
                     var fluxoCaixaNegativo = await lancamentoService.ObterDiasSaldoNegativo();
 
                     if (fluxoCaixaNegativo.Any(f => f.Data.ToShortDateString == DateTime.Now.ToShortDateString))
-                        emailService.SendAsync(GerarMensagemEmail());
+                        await emailService.SendAsync(GerarMensagemEmail());
 
                     Log.Information("Job executado com sucesso");
                 }
