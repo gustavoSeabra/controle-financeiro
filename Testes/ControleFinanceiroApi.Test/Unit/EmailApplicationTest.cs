@@ -53,7 +53,7 @@ namespace ControleFinanceiroApi.Test.Unit
 
         #region Helpers
 
-        private MimeMessage GeteMimeMessage(Email mail)
+        private static MimeMessage GeteMimeMessage(Email mail)
         {
             var mime = new MimeMessage();
 
