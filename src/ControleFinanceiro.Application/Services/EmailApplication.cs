@@ -2,11 +2,9 @@
 using ControleFinanceiro.Domain.Services;
 using MimeKit;
 using MimeKit.Text;
-using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiro.Application.Services
 {
-    [ExcludeFromCodeCoverage]
     public class EmailApplication : IEmailService
     {
         private readonly ISmtpClientGenerator _smtClient;
