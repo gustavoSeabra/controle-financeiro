@@ -46,6 +46,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"gustavoSeabra_controle-financeiro" /o:"gustavoseabra" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build ControleFinanceiroApi.sln --no-incremental
-          dotnet test ControleFinanceiroApi.sln --collect "Code Coverage"
+          dotnet build ControleFinanceiroApi.sln --configuration Release;
+          dotnet test ControleFinanceiroApi.sln --collect:"XPlat Code Coverage"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
