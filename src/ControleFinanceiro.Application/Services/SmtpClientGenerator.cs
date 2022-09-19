@@ -2,9 +2,11 @@
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ControleFinanceiro.Application.Services
 {
+    [ExcludeFromCodeCoverage]
     public class SmtpClientGenerator : ISmtpClientGenerator
     {
         private readonly IConfiguration _configuration;
