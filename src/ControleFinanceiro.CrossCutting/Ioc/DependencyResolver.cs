@@ -28,6 +28,7 @@ namespace ControleFinanceiro.CrossCutting.Ioc
         {
             services.AddScoped<ILancamentoApplication, LancamentoApplication>();
             services.AddScoped<IEmailService, EmailApplication>();
+            services.AddScoped<ISmtpClientGenerator, SmtpClientGenerator>();
         }
 
         private static void RegisterRepositories(IServiceCollection services)
