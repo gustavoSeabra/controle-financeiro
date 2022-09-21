@@ -45,7 +45,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
+          dotnet tool install --global dotnet-coverage
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"gustavoSeabra_controle-financeiro" /o:"gustavoseabra" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.xunit.reportsPaths="**\coverage.cobertura.xml"
           dotnet build ControleFinanceiroApi.sln --configuration Release;
-          dotnet test ControleFinanceiroApi.sln --collect:"XPlat Code Coverage"
+          dotnet-coverage collect 'dotnet test' -f xml -o 'coverage.xml'
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
